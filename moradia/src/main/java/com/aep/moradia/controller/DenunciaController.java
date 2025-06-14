@@ -54,4 +54,11 @@ public class DenunciaController {
         DenunciaResponseDTO denunciaAtualizada = denunciaService.atualizarStatus(id, novoStatus);
         return ResponseEntity.ok(denunciaAtualizada);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarDenuncia(@PathVariable Long id) {
+        denunciaService.deletarDenuncia(id);
+        // Retorna 204 No Content, o padrão para DELETE bem-sucedido
+        return ResponseEntity.noContent().build();
+    }
 }

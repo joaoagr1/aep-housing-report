@@ -13,4 +13,5 @@ public interface DenunciaService {
     DenunciaResponseDTO buscarPorId(Long id);
     List<DenunciaResponseDTO> buscarTodas();
     DenunciaResponseDTO atualizarStatus(Long id, String status);
+    void deletarDenuncia(Long id);
 }

@@ -63,6 +63,14 @@ public   class DenunciaServiceImpl implements DenunciaService {
         return convertToDTO(denunciaAtualizada);
     }
 
+    @Override
+    public void deletarDenuncia(Long id) {
+        if (!denunciaRepository.existsById(id)) {
+            throw new EntityNotFoundException("Denúncia não encontrada com o ID: " + id);
+        }
+        denunciaRepository.deleteById(id);
+    }
+
     // Método utilitário para converter Entidade em DTO
     private DenunciaResponseDTO convertToDTO(Denuncia denuncia) {
         DenunciaResponseDTO dto = new DenunciaResponseDTO();
